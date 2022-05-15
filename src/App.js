@@ -1,7 +1,14 @@
+import ListDisplay from './components/ListDisplay';
+
 const App = () => {
   return (
     <div>
-      <h1>Remove boilerplate files</h1>
+      {/* Header */}
+      <header>
+        <h1>List Public GitHub Repositories</h1>
+      </header>
+      {/* List Display */}
+      <ListDisplay />
     </div>
   );
 }
