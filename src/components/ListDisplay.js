@@ -6,7 +6,6 @@ const ListDisplay = () => {
   
   return (
     <div className='table-container'>
-      <div>{'JSON.stringify(repos)'}</div>
       <table>
         <thead>
           <tr>
