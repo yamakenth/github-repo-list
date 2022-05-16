@@ -2,8 +2,22 @@ import { range } from '../utils/utils';
 
 const PageControls = (props) => {
   const repos = props.repos;
+  const setRepos = props.setRepos;
   const curRepos = props.curRepos;
   const setCurRepos = props.setCurRepos;
+  const baseUrl = props.baseUrl;
+  const headers = props.headers;
+
+  // fetch list of repos based on "since" id params
+  const fetchPublicRepos = (url, headers) => {
+    console.log('fetching new data...');
+    fetch(url, headers)
+      .then(res => res.json())
+      .then(data => {
+        setRepos(repos.concat(data));
+      })
+      .catch(err => console.log('Request Failed', err));
+  }
   
   // change curRepos onClick
   const handlePageClick = (i) => {
@@ -24,7 +38,8 @@ const PageControls = (props) => {
   const handleNextClick = () => {
     console.log('clicked on Next');
     if (curRepos[1] + 1 === repos.length) {
-      console.log('cannot go to next page');
+      fetchPublicRepos(`${baseUrl}?since=${repos[curRepos[1]].id}`, headers);
+      console.log('cannot move to next page');
     }
     setCurRepos([curRepos[0] + 10, curRepos[1] + 10]);
   }
