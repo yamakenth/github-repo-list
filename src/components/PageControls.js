@@ -1,15 +1,27 @@
 const PageControls = (props) => {
+  const curRepos = props.curRepos;
+  const setCurRepos = props.setCurRepos;
+  
   // change curRepos onClick
   const handlePageClick = (i) => {
     console.log('clicked on ' + i);
-    props.setCurRepos([i * 10, i * 10 + 9]);
+    setCurRepos([i * 10, i * 10 + 9]);
+  }
+
+  // move to previous page
+  const handlePrevClick = () => {
+    console.log('clicked on Previous');
+    if (curRepos[0] === 0) {
+      return;
+    }
+    setCurRepos([curRepos[0] - 10, curRepos[1] - 10]);
   }
   
   return (
     <div>
-      <button type='button'>Previous</button>
+      <button type='button' onClick={handlePrevClick}>Previous</button>
       {
-        range(props.curRepos[0], props.curRepos[1]).map(n => {
+        range(curRepos[0], curRepos[1]).map(n => {
           return (
             <button key={n % 10} type='button' onClick={() => handlePageClick(n % 10)}>
               {n % 10 + 1}
