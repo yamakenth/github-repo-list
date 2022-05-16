@@ -8,9 +8,11 @@ import { fetchPublicRepos } from './utils/api';
 import { RepoContext } from './utils/RepoContext';
 
 const App = () => {
-  // store repos as state 
+  // repos = [repo1Data, repo2Data, ...] 
+  // data directly from api call
   const [repos, setRepos] = useState([]);
-  // store current page of 10 repos *start & end inclusive
+  // curRepos = [start, num] 
+  // current repo list on display, start = first index, num = num of elements
   const [curRepos, setCurRepos] = useState([0, 9]);
 
   // load first batch of repos on componentDidMount
