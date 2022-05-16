@@ -1,7 +1,10 @@
+import { FaGithubSquare } from 'react-icons/fa';
+
 const Header = () => {
   return (
     <header>
-      <h1>List Public GitHub Repositories</h1>
+      <FaGithubSquare size={42}/>
+      <h1>GitHub Public Repositories</h1>
     </header>
   );
 }

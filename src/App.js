@@ -5,7 +5,6 @@ import ListDisplay from './components/ListDisplay';
 import PageControls from './components/PageControls';
 
 import './styles/App.css';
-import './styles/reset.css';
 
 const baseUrl = 'https://api.github.com/repositories';
 const headers = {
@@ -36,7 +35,7 @@ const App = () => {
   }, []);
 
   return (
-    <div>
+    <div id='app'>
       <Header />
       <ListDisplay repos={repos} setRepos={setRepos} curRepos={curRepos} setCurRepos={setCurRepos} />
       <PageControls repos={repos} setRepos={setRepos} curRepos={curRepos} setCurRepos={setCurRepos} baseUrl={baseUrl} headers={headers} />
