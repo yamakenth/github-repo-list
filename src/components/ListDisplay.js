@@ -18,9 +18,9 @@ const ListDisplay = (props) => {
               return (
                 <tr key={repo.id}>
                   <td>{props.repos.findIndex(e => e.id === repo.id) + 1}</td>
-                  <td>{repo.id}</td>
+                  <td><a href={repo.html_url} target='_blank' rel='noreferrer'>{repo.id}</a></td>
                   <td>{repo.name}</td>
-                  <td>{repo.owner.id}</td>
+                  <td><a href={repo.owner.html_url} target='_blank' rel='noreferrer'>{repo.owner.id}</a></td>
                   <td>{repo.owner.login}</td>
                   <td>{repo.description}</td>
                 </tr>
