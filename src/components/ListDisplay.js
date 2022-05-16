@@ -27,8 +27,28 @@ const ListDisplay = () => {
   
   return (
     <div>
-      <h2>ListDisplay</h2>
-      <div>{JSON.stringify(repos)}</div>
+      <table>
+        <tr>
+          <th>Repo ID</th>
+          <th>Repo Name</th>
+          <th>Owner ID</th>
+          <th>Owner Name</th>
+          <th>Repo Description</th>
+        </tr>
+        {
+          repos.map(repo => {
+            return (
+              <tr key={repo.id}>
+                <td>{repo.id}</td>
+                <td>{repo.name}</td>
+                <td>{repo.owner.id}</td>
+                <td>{repo.owner.login}</td>
+                <td>{repo.description}</td>
+              </tr>
+            );
+          })
+        }
+      </table>
     </div>
   )
 }
