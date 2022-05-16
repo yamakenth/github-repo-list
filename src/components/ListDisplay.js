@@ -1,6 +1,6 @@
 const ListDisplay = (props) => {
   return (
-    <div>
+    <div className='table-container'>
       <table>
         <thead>
           <tr>
@@ -17,12 +17,12 @@ const ListDisplay = (props) => {
             props.repos.slice(props.curRepos[0], props.curRepos[1] + 1).map(repo => {
               return (
                 <tr key={repo.id}>
-                  <td>{props.repos.findIndex(e => e.id === repo.id) + 1}</td>
+                  <td className='repo-no'>{props.repos.findIndex(e => e.id === repo.id) + 1}</td>
                   <td><a href={repo.html_url} target='_blank' rel='noreferrer'>{repo.id}</a></td>
                   <td>{repo.name}</td>
                   <td><a href={repo.owner.html_url} target='_blank' rel='noreferrer'>{repo.owner.id}</a></td>
                   <td>{repo.owner.login}</td>
-                  <td>{repo.description}</td>
+                  <td className='repo-description'>{repo.description}</td>
                 </tr>
               );
             })

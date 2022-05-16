@@ -7,10 +7,6 @@
   box-sizing: border-box;
 }
 
-#app {
-  height: 100vh;
-}
-
 header {
   display: flex;
   justify-content: center;
@@ -18,10 +14,52 @@ header {
   padding: 12px;
 }
 
+main {
+  margin-top: 12px;
+}
+
 h1 {
-  font-size: 2rem
+  font-size: 32px;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+table { 
+  border-collapse: collapse; 
+}
+
+thead {
+  border-bottom: 1px solid #000;
+}
+
+th, td {
+  text-align: center;
+  padding: 4px 6px;
 }
 
 header h1 {
-  margin-left: 0.5rem;
+  margin-left: 6px;
+}
+
+tbody tr {
+  border-bottom: 1px solid #d3d3d3;
+}
+
+#app {
+  height: 100vh;
+}
+
+.table-container {
+  margin: 0 20px;
+}
+
+.repo-description {
+  text-align: left !important;
+}
+
+.repo-no {
+  font-weight: bold;
 }

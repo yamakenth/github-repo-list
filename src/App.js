@@ -37,8 +37,10 @@ const App = () => {
   return (
     <div id='app'>
       <Header />
-      <ListDisplay repos={repos} setRepos={setRepos} curRepos={curRepos} setCurRepos={setCurRepos} />
-      <PageControls repos={repos} setRepos={setRepos} curRepos={curRepos} setCurRepos={setCurRepos} baseUrl={baseUrl} headers={headers} />
+      <main>
+        <ListDisplay repos={repos} setRepos={setRepos} curRepos={curRepos} setCurRepos={setCurRepos} />
+        <PageControls repos={repos} setRepos={setRepos} curRepos={curRepos} setCurRepos={setCurRepos} baseUrl={baseUrl} headers={headers} />
+      </main>
     </div>
   );
 }
