@@ -7,8 +7,10 @@ const headers = {
 }
 
 const ListDisplay = () => {
-  // store repos api urls as state 
+  // store repos as state 
   const [repos, setRepos] = useState([]);
+  // store current page of 10 repos *start & end inclusive
+  const [curRepos, setCurRepos] = useState([0, 9])
   
   // fetch list of repos based on "since" id params
   const fetchPublicRepos = (url) => {
@@ -36,7 +38,7 @@ const ListDisplay = () => {
           <th>Repo Description</th>
         </tr>
         {
-          repos.map(repo => {
+          repos.slice(curRepos[0], curRepos[1] + 1).map(repo => {
             return (
               <tr key={repo.id}>
                 <td>{repo.id}</td>
