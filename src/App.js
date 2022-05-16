@@ -4,6 +4,8 @@ import Header from './components/Header';
 import ListDisplay from './components/ListDisplay';
 import PageControls from './components/PageControls';
 
+import './App.css';
+
 const baseUrl = 'https://api.github.com/repositories';
 const headers = {
   method: 'GET',
