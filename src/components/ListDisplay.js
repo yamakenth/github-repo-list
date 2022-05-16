@@ -17,7 +17,7 @@ const ListDisplay = (props) => {
             props.repos.slice(props.curRepos[0], props.curRepos[1] + 1).map(repo => {
               return (
                 <tr key={repo.id}>
-                  <td>{props.repos.findIndex(e => e.id === repo.id)}</td>
+                  <td>{props.repos.findIndex(e => e.id === repo.id) + 1}</td>
                   <td>{repo.id}</td>
                   <td>{repo.name}</td>
                   <td>{repo.owner.id}</td>
