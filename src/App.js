@@ -13,7 +13,7 @@ const App = () => {
   const [repos, setRepos] = useState([]);
   // curRepos = [start, num] 
   // current repo list on display, start = first index, num = num of elements
-  const [curRepos, setCurRepos] = useState([0, 9]);
+  const [curRepos, setCurRepos] = useState([0, 10]);
 
   // load first batch of repos on componentDidMount
   useEffect(() => {
