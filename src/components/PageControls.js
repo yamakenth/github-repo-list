@@ -22,6 +22,9 @@ const PageControls = (props) => {
   // change curRepos onClick
   const handlePageClick = (i) => {
     console.log('clicked on ' + i);
+    if (i * 10 > repos.length - 1) {
+      fetchPublicRepos(`${baseUrl}?since=${repos[repos.length - 1].id}`, headers);
+    }
     setCurRepos([i * 10, i * 10 + 9]);
   }
 
