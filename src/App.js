@@ -5,7 +5,7 @@ import Header from './components/Header';
 import ListDisplay from './components/ListDisplay';
 import PageControls from './components/PageControls';
 import { fetchPublicRepos } from './utils/api';
-import { RepoContext } from './utils/context';
+import { RepoContext } from './utils/RepoContext';
 
 const App = () => {
   // store repos as state 

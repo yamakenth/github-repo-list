@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
-import { RepoContext } from '../utils/context';
+import { RepoContext } from '../utils/RepoContext';
 import { fetchPublicRepos } from '../utils/api';
 import { range } from '../utils/utils';
 

@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { RepoContext } from '../utils/context';
+import { RepoContext } from '../utils/RepoContext';
 
 const ListDisplay = () => {
   const { repos, curRepos } = useContext(RepoContext);
