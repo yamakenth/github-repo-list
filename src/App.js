@@ -22,9 +22,9 @@ const App = () => {
     <div id='app'>
       <Header />
       <main>
-        <RepoContext.Provider value={{ repos, setRepos }}>
-          <ListDisplay curRepos={curRepos} setCurRepos={setCurRepos} />
-          <PageControls curRepos={curRepos} setCurRepos={setCurRepos} />
+        <RepoContext.Provider value={{ repos, setRepos, curRepos, setCurRepos }}>
+          <ListDisplay />
+          <PageControls />
         </RepoContext.Provider>
       </main>
     </div>

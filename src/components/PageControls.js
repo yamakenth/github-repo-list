@@ -5,11 +5,8 @@ import { RepoContext } from '../utils/context';
 import { fetchPublicRepos } from '../utils/api';
 import { range } from '../utils/utils';
 
-const PageControls = (props) => {
-  const { repos, setRepos } = useContext(RepoContext);
-  
-  const curRepos = props.curRepos;
-  const setCurRepos = props.setCurRepos;
+const PageControls = () => {
+  const { repos, setRepos, curRepos, setCurRepos } = useContext(RepoContext);
   
   // change curRepos onClick
   const handlePageClick = (i) => {

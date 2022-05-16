@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { RepoContext } from '../utils/context';
 
-const ListDisplay = (props) => {
-  const { repos } = useContext(RepoContext);
+const ListDisplay = () => {
+  const { repos, curRepos } = useContext(RepoContext);
   
   return (
     <div className='table-container'>
@@ -20,7 +20,7 @@ const ListDisplay = (props) => {
         </thead>
         <tbody>
           {
-            repos.slice(props.curRepos[0], props.curRepos[1] + 1).map(repo => {
+            repos.slice(curRepos[0], curRepos[1] + 1).map(repo => {
               return (
                 <tr key={repo.id}>
                   <td className='repo-no'>{repos.findIndex(e => e.id === repo.id) + 1}</td>
