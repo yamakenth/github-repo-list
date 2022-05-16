@@ -66,9 +66,6 @@ const PageControls = (props) => {
       }
       <span>&middot;&nbsp;&middot;&nbsp;&middot;</span>
       <button type='button' onClick={handleNextClick}>Next</button>
-
-      <div>{'curRepos: ' + JSON.stringify(curRepos)}</div>
-
     </div>
   )
 }
