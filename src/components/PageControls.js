@@ -1,30 +1,19 @@
 import { range } from '../utils/utils';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
+import { fetchPublicRepos } from '../utils/api';
+
 const PageControls = (props) => {
   const repos = props.repos;
   const setRepos = props.setRepos;
   const curRepos = props.curRepos;
   const setCurRepos = props.setCurRepos;
-  const baseUrl = props.baseUrl;
-  const headers = props.headers;
-
-  // fetch list of repos based on "since" id params
-  const fetchPublicRepos = (url, headers) => {
-    console.log('fetching new data...');
-    fetch(url, headers)
-      .then(res => res.json())
-      .then(data => {
-        setRepos(repos.concat(data));
-      })
-      .catch(err => console.log('Request Failed', err));
-  }
   
   // change curRepos onClick
   const handlePageClick = (i) => {
     console.log('clicked on ' + i);
     if (i * 10 > repos.length - 1) {
-      fetchPublicRepos(`${baseUrl}?since=${repos[repos.length - 1].id}`, headers);
+      fetchPublicRepos(repos[repos.length - 1].id).then(data => setRepos(repos.concat(data)));
     }
     setCurRepos([i * 10, i * 10 + 9]);
   }
@@ -42,7 +31,7 @@ const PageControls = (props) => {
   const handleNextClick = () => {
     console.log('clicked on Next');
     if (curRepos[1] + 1 === repos.length) {
-      fetchPublicRepos(`${baseUrl}?since=${repos[curRepos[1]].id}`, headers);
+      fetchPublicRepos(repos[curRepos[1]].id).then(data => setRepos(repos.concat(data)));
     }
     setCurRepos([curRepos[0] + 10, curRepos[1] + 10]);
   }
