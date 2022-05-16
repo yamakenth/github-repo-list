@@ -1,4 +1,4 @@
-// generate array of num from min to max inclusive
-export const range = (min, max) => {
-  return [...Array(max - min + 1).keys()].map(i => i + min);
+// generate array of n elements from start with increment of 1
+export const range = (start, n) => {
+  return [...Array(n).keys()].map(i => i + start);
 }

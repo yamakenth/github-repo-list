@@ -39,7 +39,6 @@ const PageControls = (props) => {
     console.log('clicked on Next');
     if (curRepos[1] + 1 === repos.length) {
       fetchPublicRepos(`${baseUrl}?since=${repos[curRepos[1]].id}`, headers);
-      console.log('cannot move to next page');
     }
     setCurRepos([curRepos[0] + 10, curRepos[1] + 10]);
   }
@@ -48,16 +47,19 @@ const PageControls = (props) => {
     <div>
       <button type='button' onClick={handlePrevClick}>Previous</button>
       {
-        range(curRepos[0], curRepos[1]).map(n => {
+        range(curRepos[0] / 10 + 1, 10).map(n => {
           return (
-            <button key={n % 10} type='button' onClick={() => handlePageClick(n % 10)}>
-              {n % 10 + 1}
+            <button key={n} type='button' onClick={() => handlePageClick(n - 1)}>
+              {n}
             </button>
           );
         })
       }
       <span>&middot;&nbsp;&middot;&nbsp;&middot;</span>
       <button type='button' onClick={handleNextClick}>Next</button>
+
+      <div>{'curRepos: ' + JSON.stringify(curRepos)}</div>
+
     </div>
   )
 }
