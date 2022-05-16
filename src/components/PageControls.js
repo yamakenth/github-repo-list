@@ -1,3 +1,5 @@
+import { range } from '../utils/utils';
+
 const PageControls = (props) => {
   const repos = props.repos;
   const curRepos = props.curRepos;
@@ -43,11 +45,6 @@ const PageControls = (props) => {
       <button type='button' onClick={handleNextClick}>Next</button>
     </div>
   )
-}
-
-// utils
-function range(min, max) {
-  return [...Array(max - min + 1).keys()].map(i => i + min);
 }
 
 export default PageControls;

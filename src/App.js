@@ -17,7 +17,7 @@ const App = () => {
   const [curRepos, setCurRepos] = useState([0, 9])
   
   // fetch list of repos based on "since" id params
-  const fetchPublicRepos = (url) => {
+  const fetchPublicRepos = (url, headers) => {
     console.log('fetching data...');
     fetch(url, headers)
       .then(res => res.json())
@@ -29,7 +29,7 @@ const App = () => {
 
   // load first batch of repos on componentDidMount
   useEffect(() => {
-    fetchPublicRepos(baseUrl + '?since=0');
+    fetchPublicRepos(baseUrl + '?since=0', headers);
   }, []);
 
   return (
