@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import Header from './components/Header';
 import ListDisplay from './components/ListDisplay';
+import PageControls from './components/PageControls';
 
 const baseUrl = 'https://api.github.com/repositories';
 const headers = {
@@ -34,6 +35,7 @@ const App = () => {
     <div>
       <Header />
       <ListDisplay repos={repos} setRepos={setRepos} curRepos={curRepos} setCurRepos={setCurRepos} />
+      <PageControls curRepos={curRepos} />
     </div>
   );
 }
