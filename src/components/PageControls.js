@@ -49,6 +49,12 @@ const PageControls = (props) => {
   return (
     <div>
       <button type='button' onClick={handlePrevClick}>Previous</button>
+      {curRepos[0]> 0 &&
+        <span>
+          <button type='button' onClick={() => handlePageClick(0)}>1</button>
+          {curRepos[0] > 10 && <span>&middot;&nbsp;&middot;&nbsp;&middot;</span>}
+        </span>
+      }
       {
         range(curRepos[0] / 10 + 1, 10).map(n => {
           return (
