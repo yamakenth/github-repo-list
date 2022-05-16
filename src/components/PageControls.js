@@ -16,6 +16,12 @@ const PageControls = (props) => {
     }
     setCurRepos([curRepos[0] - 10, curRepos[1] - 10]);
   }
+
+  // move to next page
+  const handleNextClick = () => {
+    console.log('clicked on Next');
+    setCurRepos([curRepos[0] + 10, curRepos[1] + 10]);
+  }
   
   return (
     <div>
@@ -30,7 +36,7 @@ const PageControls = (props) => {
         })
       }
       <span>&middot;&nbsp;&middot;&nbsp;&middot;</span>
-      <button type='button'>Next</button>
+      <button type='button' onClick={handleNextClick}>Next</button>
     </div>
   )
 }

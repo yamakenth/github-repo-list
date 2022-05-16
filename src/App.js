@@ -18,6 +18,7 @@ const App = () => {
   
   // fetch list of repos based on "since" id params
   const fetchPublicRepos = (url) => {
+    console.log('fetching data...');
     fetch(url, headers)
       .then(res => res.json())
       .then(data => {
