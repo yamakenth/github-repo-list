@@ -1,6 +1,12 @@
+import { useContext } from 'react';
+import { RepoContext } from '../utils/context';
+
 const ListDisplay = (props) => {
+  const { repos } = useContext(RepoContext);
+  
   return (
     <div className='table-container'>
+      <div>{'JSON.stringify(repos)'}</div>
       <table>
         <thead>
           <tr>
@@ -14,10 +20,10 @@ const ListDisplay = (props) => {
         </thead>
         <tbody>
           {
-            props.repos.slice(props.curRepos[0], props.curRepos[1] + 1).map(repo => {
+            repos.slice(props.curRepos[0], props.curRepos[1] + 1).map(repo => {
               return (
                 <tr key={repo.id}>
-                  <td className='repo-no'>{props.repos.findIndex(e => e.id === repo.id) + 1}</td>
+                  <td className='repo-no'>{repos.findIndex(e => e.id === repo.id) + 1}</td>
                   <td><a href={repo.html_url} target='_blank' rel='noreferrer'>{repo.id}</a></td>
                   <td>{repo.name}</td>
                   <td><a href={repo.owner.html_url} target='_blank' rel='noreferrer'>{repo.owner.id}</a></td>

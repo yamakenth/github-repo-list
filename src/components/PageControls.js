@@ -1,11 +1,13 @@
-import { range } from '../utils/utils';
+import { useContext } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
+import { RepoContext } from '../utils/context';
 import { fetchPublicRepos } from '../utils/api';
+import { range } from '../utils/utils';
 
 const PageControls = (props) => {
-  const repos = props.repos;
-  const setRepos = props.setRepos;
+  const { repos, setRepos } = useContext(RepoContext);
+  
   const curRepos = props.curRepos;
   const setCurRepos = props.setCurRepos;
   

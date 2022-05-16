@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 
+import './styles/App.css';
 import Header from './components/Header';
 import ListDisplay from './components/ListDisplay';
 import PageControls from './components/PageControls';
 import { fetchPublicRepos } from './utils/api';
-
-import './styles/App.css';
+import { RepoContext } from './utils/context';
 
 const App = () => {
   // store repos as state 
   const [repos, setRepos] = useState([]);
   // store current page of 10 repos *start & end inclusive
-  const [curRepos, setCurRepos] = useState([0, 9])
+  const [curRepos, setCurRepos] = useState([0, 9]);
 
   // load first batch of repos on componentDidMount
   useEffect(() => {
@@ -22,8 +22,10 @@ const App = () => {
     <div id='app'>
       <Header />
       <main>
-        <ListDisplay repos={repos} setRepos={setRepos} curRepos={curRepos} setCurRepos={setCurRepos} />
-        <PageControls repos={repos} setRepos={setRepos} curRepos={curRepos} setCurRepos={setCurRepos} />
+        <RepoContext.Provider value={{ repos, setRepos }}>
+          <ListDisplay curRepos={curRepos} setCurRepos={setCurRepos} />
+          <PageControls curRepos={curRepos} setCurRepos={setCurRepos} />
+        </RepoContext.Provider>
       </main>
     </div>
   );
