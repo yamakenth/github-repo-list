@@ -1,4 +1,5 @@
 const PageControls = (props) => {
+  const repos = props.repos;
   const curRepos = props.curRepos;
   const setCurRepos = props.setCurRepos;
   
@@ -20,6 +21,9 @@ const PageControls = (props) => {
   // move to next page
   const handleNextClick = () => {
     console.log('clicked on Next');
+    if (curRepos[1] + 1 === repos.length) {
+      console.log('cannot go to next page');
+    }
     setCurRepos([curRepos[0] + 10, curRepos[1] + 10]);
   }
   

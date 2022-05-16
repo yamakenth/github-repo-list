@@ -36,7 +36,7 @@ const App = () => {
     <div>
       <Header />
       <ListDisplay repos={repos} setRepos={setRepos} curRepos={curRepos} setCurRepos={setCurRepos} />
-      <PageControls curRepos={curRepos} setCurRepos={setCurRepos} />
+      <PageControls repos={repos} curRepos={curRepos} setCurRepos={setCurRepos} />
     </div>
   );
 }
