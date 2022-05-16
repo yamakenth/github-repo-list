@@ -59,7 +59,7 @@ const PageControls = (props) => {
       {
         range(curRepos[0] / 10 + 1, 10).map(n => {
           return (
-            <button className='page' key={n} type='button' onClick={() => handlePageClick(n - 1)}>
+            <button className={`page ${(curRepos[0] / 10 + 1 === n) ? 'active': null}`} key={n} type='button' onClick={() => handlePageClick(n - 1)}>
               {n}
             </button>
           );
