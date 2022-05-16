@@ -1,4 +1,5 @@
 import { range } from '../utils/utils';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 const PageControls = (props) => {
   const repos = props.repos;
@@ -47,25 +48,25 @@ const PageControls = (props) => {
   }
   
   return (
-    <div>
-      <button type='button' onClick={handlePrevClick}>Previous</button>
+    <div className='control-container'>
+      <button className='slide' type='button' onClick={handlePrevClick}><FaChevronLeft />&nbsp;Previous</button>
       {curRepos[0]> 0 &&
-        <span>
-          <button type='button' onClick={() => handlePageClick(0)}>1</button>
-          {curRepos[0] > 10 && <span>&middot;&nbsp;&middot;&nbsp;&middot;</span>}
-        </span>
+        <button className='page' type='button' onClick={() => handlePageClick(0)}>1</button>
+      }
+      {curRepos[0]> 10 &&
+        <span>&middot;&nbsp;&middot;&nbsp;&middot;</span>
       }
       {
         range(curRepos[0] / 10 + 1, 10).map(n => {
           return (
-            <button key={n} type='button' onClick={() => handlePageClick(n - 1)}>
+            <button className='page' key={n} type='button' onClick={() => handlePageClick(n - 1)}>
               {n}
             </button>
           );
         })
       }
       <span>&middot;&nbsp;&middot;&nbsp;&middot;</span>
-      <button type='button' onClick={handleNextClick}>Next</button>
+      <button className='slide' type='button' onClick={handleNextClick}>Next&nbsp;<FaChevronRight /></button>
     </div>
   )
 }
