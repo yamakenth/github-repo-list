@@ -11,9 +11,9 @@ const App = () => {
   // repos = [repo1Data, repo2Data, ...] 
   // data directly from api call
   const [repos, setRepos] = useState([]);
-  // curRepos = [start, num] 
-  // current repo list on display, start = first index, num = num of elements
-  const [curRepos, setCurRepos] = useState([0, 10]);
+  // curRepos = [start, end] 
+  // current repo list on display, start = first index, end = last index incl.
+  const [curRepos, setCurRepos] = useState([0, 9]);
 
   // load first batch of repos on componentDidMount
   useEffect(() => {
